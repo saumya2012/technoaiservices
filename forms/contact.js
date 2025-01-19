@@ -1,4 +1,4 @@
-const contactForm = document.getElementById("contact-form"); // Get the form by its ID
+const contactForm = document.getElementById("contact-form");
 
 contactForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -14,12 +14,9 @@ contactForm.addEventListener("submit", function (event) {
     message: document.getElementById('message').value
   }
 
-  console.log("params", params);
-
-  emailjs.send("service_5p46gf2", "template_d522p3c", params).then(
+  emailjs.send("service_8v3z8or", "template_b45vx4r", params).then(
     message => {
       console.log('SUCCESS!', message);
-      alert('Your message has been sent!');
       document.querySelector('.loading').classList.add('hide');
       document.querySelector('.sent-message').classList.remove('hide');
       document.querySelector('.sent-message').classList.add('show');
@@ -27,7 +24,6 @@ contactForm.addEventListener("submit", function (event) {
     }
   ).catch(error => {
     console.log('FAILED...', error);
-    alert('There was an error sending your message. Please try again later.');
     document.querySelector('.loading').classList.add('hide');
     document.querySelector('.error-message').classList.remove('hide');
     document.querySelector('.error-message').classList.add('show');
